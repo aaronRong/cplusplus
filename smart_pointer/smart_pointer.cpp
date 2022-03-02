@@ -42,7 +42,7 @@ int main()
          << ", ptr3.lock()->son: " << ptr3.lock()->son << endl; // 注意访问方式
 
     Family family;
-    shared_ptr<Family> ptr7 = make_shared<Family>(family);
+    shared_ptr<Family> ptr7 = make_shared<Family>(family);  // 同样有make_unique<YY>(xx), 没有make_weak
     cout << "line: " << __LINE__
          << ", make_shared ptr7.use_count(): " << ptr7.use_count() << endl;
 
@@ -50,7 +50,7 @@ int main()
     unique_func(std::move(ptr4));
 
     unique_ptr<Family> ptr5(new Family());
-    shared_ptr<Family> ptr6(std::move(ptr5));   // unique_ptr初始化shared_ptr
+    shared_ptr<Family> ptr6(std::move(ptr5));   // unique_ptr初始化shared_ptr, 但反过来不可以
     cout << "line: " << __LINE__ << ", ptr6->son: " << ptr6->son << endl;
 
     // 错误用法：
