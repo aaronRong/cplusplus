@@ -1,0 +1,3 @@
+[submodule "nn/libDynamic"]
+	path = nn/libDynamic
+	url = https://github.com/aaronRong/libDynamic.git
